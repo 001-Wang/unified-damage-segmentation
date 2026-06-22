@@ -51,12 +51,18 @@ B0 for ROI detection and B3 for fine segmentation.
 ```text
 scripts/datasets/                         dataset inventory and conversion
 scripts/train_multilabel_damage_segformer.py
-scripts/train_two_stage_damage_segformer.py
+scripts/train_two_stage_damage_segformer.py  two-stage CLI and compatibility imports
+scripts/two_stage/                           two-stage training implementation
 scripts/eval_stage1_roi_by_dataset.py
 scripts/infer_two_stage_damage_segformer.py
 scripts/visualize_stage1_roi_predictions.py
 slurm/                                    HPRC training launchers
 ```
+
+The two-stage implementation is organized by responsibility: `cli.py` defines
+arguments, `data.py` handles datasets and ROI geometry, `trainers.py` defines
+losses and custom trainers, `evaluation.py` computes metrics, `modeling.py`
+configures models and checkpoints, and `pipeline.py` coordinates both stages.
 
 ## Environment Setup
 
